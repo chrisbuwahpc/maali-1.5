@@ -25,8 +25,7 @@ MAALI_MODULE_SET_PATH=1
 ##############################################################################
 
 function maali_unpack {
-  if [ ! -f "$MAALI_SRC/$MAALI_TOOL_NAME-$MAALI_TOOL_VERSION.tar.gz" ]; then
-  # wget --no-check-certificate -O $MAALI_SRC/$MAALI_TOOL_NAME-$MAALI_TOOL_VERSION.tar.gz -q https://github.com/Pawseyops/$MAALI_TOOL_NAME/archive/$MAALI_TOOL_VERSION.tar.gz
+  if [ ! -f "$MAALI_SRC/$MAALI_TOOL_NAME-$MAALI_TOOL_VERSZZION.tar.gz" ]; then
     wget --no-check-certificate -O $MAALI_SRC/$MAALI_TOOL_NAME-$MAALI_TOOL_VERSION.tar.gz -q https://github.com/chrisbuwahpc/${MAALI_TOOL_NAME}-1.5/archive/$MAALI_TOOL_VERSION.tar.gz
   fi
 
@@ -44,8 +43,6 @@ function maali_build {
 
   maali_run "mkdir $MAALI_INSTALL_DIR/bin"
   maali_run "install -m 755 maali $MAALI_INSTALL_DIR/bin"
-  maali_run "install -m 755 ibs2maali $MAALI_INSTALL_DIR/bin"
-
   # set the version number
   sed -i -e 's/MAALI_VERSION="tip"/MAALI_VERSION="'$MAALI_TOOL_VERSION'"/g' $MAALI_INSTALL_DIR/bin/maali
 }
